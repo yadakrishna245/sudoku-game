@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sudoku Game</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f4f6f8;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid #555;
+        }
+
+        input {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-size: 18px;
+            border: none;
+        }
+
+        /* Bold borders for 3x3 boxes */
+        td:nth-child(3n) {
+            border-right: 2px solid black;
+        }
+
+        tr:nth-child(3n) td {
+            border-bottom: 2px solid black;
+        }
+
+        td:first-child {
+            border-left: 2px solid black;
+        }
+
+        tr:first-child td {
+            border-top: 2px solid black;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .check {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .reset {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Sudoku Game</h2>
+
+<table id="sudoku"></table>
+
+<button class="check" onclick="checkSudoku()">Check</button>
+<button class="reset" onclick="resetBoard()">Reset</button>
+
+<script>
+    const table = document.getElementById("sudoku");
+
+    // Create 9x9 grid
+    for (let i = 0; i < 9; i++) {
+        let row = table.insertRow();
+        for (let j = 0; j < 9; j++) {
+            let cell = row.insertCell();
+            let input = document.createElement("input");
+
+            input.setAttribute("maxlength", "1");
+            input.setAttribute("type", "number");
+            input.setAttribute("min", "1");
+            input.setAttribute("max", "9");
+
+            cell.appendChild(input);
+        }
+    }
+
+    function checkSudoku() {
+        alert("Checking logic can be added here!");
+    }
+
+    function resetBoard() {
+        let inputs = document.querySelectorAll("input");
+        inputs.forEach(input => input.value = "");
+    }
+</script>
+
+</body>
+</html>
